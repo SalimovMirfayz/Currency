@@ -3,8 +3,16 @@ const api = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
 const fromDropDown = document.getElementById("from-currency-select");
 const toDropDown = document.getElementById("to-currency-select");
 const result = document.getElementById("result");
+const replacement = document.querySelector(".replacement")
 
-currencies = [
+replacement.addEventListener("click", ()=> {
+  let firstValue = fromDropDown.value
+  let secondValue = toDropDown.value
+  fromDropDown.value = secondValue
+  toDropDown.value = firstValue
+})
+
+const currencies = [
   "UZS",
   "USD",
   "RUB",
@@ -40,11 +48,8 @@ let convertCurrency = () => {
         const convertedAmount = (amount / fromExchangeRate) * toExchangeRate;
         result.innerHTML = `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
       });
-  } else {
-    alert("Please fill in the amount");
-  }
+  } 
 };
 
 
 document.querySelector("#convert-button").addEventListener("click", convertCurrency);
-window.addEventListener("load", convertCurrency);

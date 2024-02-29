@@ -91,3 +91,9 @@ button {
   background-color: #e5dbff;
   padding: 0.8em 0;
 }
+.replacement{
+  margin-top: 5px;
+}
+.replacement:active{
+  scale: 0.98;
+}
